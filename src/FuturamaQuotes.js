@@ -7,19 +7,19 @@ export default class FuturamaQuotes extends Component {
      }
 
     componentDidMount = async () => {
-        const data = await request.get('https://futuramaapi.herokuapp.com/api/quotes');
+        const data = await request.get('https://futuramaapi.herokuapp/api/quotes');
 
-        this.setState({ quotes: data.body });
+        this.setState(quotes, body);
     }
 
     handleClick = async () => {
-        const data = await request.get(`https://futuramaapi.herokuapp.com/api/quotes?search=${this.state.searchQuery}`);
+        const body = await request.get(`http://herokuapp.com/api/quotes?search=${this.state.searchQuery}`);
 
-        this.setState({ quotes: data.body });
+        setState({ quotes: data });
     }
 
     handleChange = () => {
-        state({ searchQuery: e.target.value })
+        state(searchQuery,  e.target.value)
     }
 
     return (
