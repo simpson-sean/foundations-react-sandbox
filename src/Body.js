@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NameTag from './NameTag.js';
+import FuturamaQuotes from './FuturamaQuotes.js';
 
 export default class Body extends Component {
     render() {
@@ -7,7 +7,7 @@ export default class Body extends Component {
             <main>
                 <section className="main-section">
                     <h2>{this.props.title}</h2>
-                    <NameTag />
+                    <FuturamaQuotes />
                 </section>
             </main>
         )
