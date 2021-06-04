@@ -3,7 +3,6 @@ import request from 'superagent';
 
 export default class FuturamaQuotes extends Component {
     state = { 
-        quotes: [],
         searchQuery: ''
      }
 
@@ -19,24 +18,21 @@ export default class FuturamaQuotes extends Component {
         this.setState({ quotes: data.body });
     }
 
-    handleChange = e => {
-        this.setState({ searchQuery: e.target.value })
+    handleChange = () => {
+        state({ searchQuery: e.target.value })
     }
 
-    render() {
-
-        return (
-            <div className="center">
-                <input onChange={this.handleChange} />
-                <button onClick={this.handleClick}>Search!</button>
-                { this.state.quotes.map(quote => 
-                    <p>
-                        <img width="30" src={quote.image} alt={quote.character} />
-                        {quote.character} 
-                        says: 
-                        <em> "{quote.quote}"</em>
-                    </p>)}
-            </div>
-        )
-    }
+    return (
+        <div className="center">
+            <input onClick={this.handleChange} />
+            <button>Search!</button>
+            { this.state.quotes.map(quote => 
+                <p>
+                    <img width="30" src={quote.character} alt={quote.character} />
+                    {quote.character} 
+                    says: 
+                    <em> "{quote.quote}"</em>
+                </p>)}
+        </div>
+    )
 }
