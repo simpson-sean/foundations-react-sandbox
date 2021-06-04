@@ -7,7 +7,7 @@ export default class Body extends Component {
                 <section className="main-section">
                     <img className="main-logo" src="alchemy-logo.png" alt="main-logo"/>
                     <h2>
-                        Welcome to Alchemy Bootstrap!
+                        Welcome to My React Sandbox!
                     </h2>
 
                     <p>
