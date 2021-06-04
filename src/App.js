@@ -10,7 +10,7 @@ export default class App extends Component {
       return (
         <div className="App">
           <Header logoSrc="big-logo.png" />
-          <Body title="Fetchin' data!"/>
+          <Body title="Searchin' for data!"/>
           <Footer year="2021" />
         </div>
       );

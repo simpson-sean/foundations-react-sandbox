@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
 import request from 'superagent';
 
-export default class Counter extends Component {
-    state = { quotes: [] }
+export default class FuturamaQuotes extends Component {
+    state = { 
+        quotes: [],
+        searchQuery: ''
+     }
 
     handleClick = async () => {
-        const data = await request.get('https://futuramaapi.herokuapp.com/api/quotes')
+        const data = await request.get(`https://futuramaapi.herokuapp.com/api/quotes?search=${this.state.searchQuery}`);
 
         this.setState({ quotes: data.body });
     }
 
+    handleChange = e => {
+        this.setState({ searchQuery: e.target.value })
+    }
+
     render() {
+
         return (
             <div className="center">
-                <button onClick={this.handleClick}>Fetch!</button>
+                <input onChange={this.handleChange} />
+                <button onClick={this.handleClick}>Search!</button>
                 { this.state.quotes.map(quote => 
                     <p>
                         <img width="30" src={quote.image} alt={quote.character} />
