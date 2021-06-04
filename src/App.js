@@ -2,8 +2,7 @@ import { Component } from 'react';
 import './reset.css';
 import './App.css';
 import Header from './Header.js';
-import Body from './Body.js';
-import Footer from './Footer.js';
+import Footer from './Component.js';
 
 export default class App extends Component {
   render() {

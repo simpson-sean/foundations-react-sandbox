@@ -6,14 +6,10 @@ export default class Body extends Component {
             <main>
                 <section className="main-section">
                     <h2>{this.props.title}</h2>
-                    <MyItem words="Here are some words" />
-                    <MyItem words="Here are some more words" />
-                    <MyItem words="Yet more words" />
-                    <MyItem words="Words" />
-                    <MyItem words="Believe it or not, words" />
-                    <MyItem words="Incredible words" />
-                    <MyItem words="Words, just words" />
-                    <MyItem words="Nothing but words" />
+                    <MyItem words={{ words: "Here are some more words"}} />
+                    <MyItem word="Yet more words" />
+                    <MyItem text="Words" />
+                    <MyItem words={() => "Words, just words"} />
                 </section>
             </main>
         )
