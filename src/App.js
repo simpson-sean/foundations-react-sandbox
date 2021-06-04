@@ -10,7 +10,7 @@ export default class App extends Component {
       return (
         <div className="App">
           <Header logoSrc="big-logo.png" />
-          <Body title="forms in react (sorry)"/>
+          <Body title="forms in react pt 2 (very sorry)"/>
           <Footer year="2021" />
         </div>
       );
