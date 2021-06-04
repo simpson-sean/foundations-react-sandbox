@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import request from 'superagent';
 
 export default class FuturamaQuotes extends Component {
@@ -6,6 +7,12 @@ export default class FuturamaQuotes extends Component {
         quotes: [],
         searchQuery: ''
      }
+
+     componentDidMount = async () => {
+        const data = await request.get(`https://futuramaapi.herokuapp.com/api/quotes`);
+
+        this.setState({ quotes: data.body });
+    }
 
     handleClick = async () => {
         const data = await request.get(`https://futuramaapi.herokuapp.com/api/quotes?search=${this.state.searchQuery}`);
@@ -26,7 +33,7 @@ export default class FuturamaQuotes extends Component {
                 { this.state.quotes.map(quote => 
                     <p>
                         <img width="30" src={quote.image} alt={quote.character} />
-                        {quote.character} 
+                        <Link to={`/quotes/${quote.character}`}>{quote.character}</Link> 
                         says: 
                         <em> "{quote.quote}"</em>
                     </p>)}

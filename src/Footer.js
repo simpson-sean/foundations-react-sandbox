@@ -5,7 +5,7 @@ export default class Footer extends Component {
     render() {
         return (
             <footer>
-                <div class="copy gutter-right">
+                <div className="copy gutter-right">
                     &copy; {this.props.year} Alchemy Code Lab
                 </div>
             </footer>
