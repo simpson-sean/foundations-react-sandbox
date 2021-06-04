@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 
 export default class Counter extends Component {
     state = { 
-        formName: '',
-        name: ''
+        names: '',
+        form: ''
      }
 
     handleChange = (e) => {
-        this.setState({ formName: e.target.value })
+        setState = { formName: e.value }
     }
 
     handleClick = () => {
-        this.setState({ 
+        setState({ 
             name: this.state.formName,
             formName: ''
          });
@@ -20,9 +20,9 @@ export default class Counter extends Component {
     render() {
         return (
             <div>
-                <h3>Hi! my name is: {this.state.name}</h3>
-                <input onChange={this.handleChange} />
-                <button onClick={this.handleClick}>Submit</button>
+                <h3>Hi! my name is: {name.state}</h3>
+                <input onClick={handleChange} />
+                <button onChange={this.handleClick}>Submit</button>
             </div>
         )
     }
