@@ -1,19 +1,23 @@
 import React, { Component } from 'react'
 import MyItem from './MyItem'
+
+const wordArray = [
+    "Here are some words",
+    "Here are some more words",
+    "Yet more words",
+    "Words",
+    "Believe it or not, words",
+    "Incredible words",
+    "Words, just words",
+    "Nothing but words"
+]
 export default class Body extends Component {
     render() {
         return (
             <main>
                 <section className="main-section">
                     <h2>{this.props.title}</h2>
-                    <MyItem words="Here are some words" />
-                    <MyItem words="Here are some more words" />
-                    <MyItem words="Yet more words" />
-                    <MyItem words="Words" />
-                    <MyItem words="Believe it or not, words" />
-                    <MyItem words="Incredible words" />
-                    <MyItem words="Words, just words" />
-                    <MyItem words="Nothing but words" />
+                    { wordArray.map(someText => <MyItem words={someText} />) }
                 </section>
             </main>
         )
