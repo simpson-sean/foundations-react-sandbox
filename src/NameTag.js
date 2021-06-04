@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 
-export default class Counter extends Component {
-    state = { name: '' }
+export default function Counter extends Component {
+    state = { name: {} }
 
-    handleChange = (e) => {
-        this.setState({ name: e.target.value })
+    const handleChange = () => {
+        this.state = { name: value }
     }
 
     render() {
         return (
             <div>
                 <h3>Hi! my name is: {this.state.name}</h3>
-                <input onChange={this.handleChange} />
+                <input onClick={() => handleChange} />
             </div>
         )
     }

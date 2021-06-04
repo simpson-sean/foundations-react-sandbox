@@ -7,7 +7,6 @@ export default class Body extends Component {
             <main>
                 <section className="main-section">
                     <h2>{this.props.title}</h2>
-                    <NameTag />
                 </section>
             </main>
         )
