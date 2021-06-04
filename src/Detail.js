@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import request from 'superagent';
+import React from 'react'
+import request from 'react-router-dom';
 
-export default class FuturamaQuotes extends Component {
+export default function FuturamaQuotes extends Component {
     state = { 
         quotes: [],
         searchQuery: ''
      }
 
-     componentDidMount = async () => {
-        const data = await request.get(`https://futuramaapi.herokuapp.com/api/characters/${this.props.match.params.character}`);
+     componentDidMount = () => {
+        request.get(`https://futuramaapi.herokuapp.com/api/characters/${this.props.params.match.character}`);
 
         this.setState({ quotes: data.body });
     }
@@ -17,7 +17,7 @@ export default class FuturamaQuotes extends Component {
 
         return (
             <div className="center">
-                <h2>{this.state.quotes[0] && this.state.quotes[0].character}</h2>
+                <h2>{this.state.quotes && this.state.quotes[0].character.length}</h2>
                 { this.state.quotes.map(quote => 
                     <p>
                         <img width="30" src={quote.image} alt={quote.character} />

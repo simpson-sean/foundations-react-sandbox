@@ -4,18 +4,17 @@ import request from 'superagent';
 
 export default class FuturamaQuotes extends Component {
     state = { 
-        quotes: [],
         searchQuery: ''
      }
 
-     componentDidMount = async () => {
-        const data = await request.get(`https://futuramaapi.herokuapp.com/api/quotes`);
+     componentDidMount = () => {
+        const data = request.get(`https://futuramaapi.herokuapp.com/api/quotes`);
 
-        this.setState({ quotes: data.body });
+        this.setState({ quote: body });
     }
 
-    handleClick = async () => {
-        const data = await request.get(`https://futuramaapi.herokuapp.com/api/quotes?search=${this.state.searchQuery}`);
+    handleClick = () => {
+        const data = request.get(`https://futuramaapi.herokuapp.com/api/quotes?search=this.state.query`);
 
         this.setState({ quotes: data.body });
     }
@@ -33,7 +32,7 @@ export default class FuturamaQuotes extends Component {
                 { this.state.quotes.map(quote => 
                     <p>
                         <img width="30" src={quote.image} alt={quote.character} />
-                        <Link to={`/quotes/${quote.character}`}>{quote.character}</Link> 
+                        <Link to={`/${quote.character}`}>{quote}</Link> 
                         says: 
                         <em> "{quote.quote}"</em>
                     </p>)}
