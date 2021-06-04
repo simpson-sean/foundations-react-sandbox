@@ -9,9 +9,9 @@ export default class App extends Component {
   render() {
       return (
         <div className="App">
-          <Header />
-          <Body />
-          <Footer />
+          <Header logoSrc="big-logo.png" />
+          <Body title="Passin' props!!"/>
+          <Footer year="2021" />
         </div>
       );
     }

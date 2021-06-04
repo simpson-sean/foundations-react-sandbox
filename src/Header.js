@@ -6,7 +6,7 @@ export default class Header extends Component {
         return (
         <header>
             <div className="gutter-right logo">
-                <img src="big-logo.png" alt="logo"/>
+                <img src={this.props.logoSrc} alt="logo"/>
             </div>
         </header>
         )
