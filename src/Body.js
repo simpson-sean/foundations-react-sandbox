@@ -3,20 +3,27 @@ import request from 'superagent';
 
 export default class Body extends Component {
     state = {
-        category: 'card',
+        categoryId: null,
         name: '',
         complexity: 1,
-        data: []
+        data: [],
+        categories: []
+    }
+
+    async componentDidMount() {
+        const data = await request.get('http://localhost:8001/categories');
+
+        this.setState({ categories: data.body });
     }
 
     handleClick = async() => {
-        const data = await request.get('https://board-games-2021.herokuapp.com/board-games');
+        const data = await request.get('http://localhost:8001/board-games');
 
         this.setState({ data: data.body });
     }
 
     handleCategoryChange = (e) => {
-        this.setState({ category: e.target.value })
+        this.setState({ categoryId: e.target.value })
     }
 
     handleNameChange = (e) => {
@@ -32,14 +39,14 @@ export default class Body extends Component {
 
         console.log(this.state)
 
-        await request.post('https://board-games-2021.herokuapp.com/board-games')
-        .send({
-            name: this.state.name,
-            complexity: this.state.complexity,
-            category: this.state.category,
-        })
+        await request.post('http://localhost:8001/board-games')
+            .send({
+                name: this.state.name,
+                complexity: this.state.complexity,
+                category_id: this.state.categoryId,
+            })
 
-        const data = await request.get('https://board-games-2021.herokuapp.com/board-games');
+        const data = await request.get('http://localhost:8001/board-games');
 
         this.setState({ data: data.body });
     }
@@ -56,10 +63,9 @@ export default class Body extends Component {
                     </label>
                     <label>
                         Category <select onChange={this.handleCategoryChange}>
-                            <option value="card">Card</option>
-                            <option value="party">Party</option>
-                            <option value="tile-laying">Tile-laying</option>
-                            <option value="economic">Economic</option>
+                            {this.state.categories.map(category => (
+                                <option key={category.id} value={category.id}>{category.name}</option>
+                            ))}
                         </select>
                     </label>
                     <button>Create new</button>
@@ -67,11 +73,13 @@ export default class Body extends Component {
 
                 <button onClick={this.handleClick}>Fetch!</button>
                 {
-                    this.state.data.map(boardGame => <div>
-                        <p>{boardGame.name}</p>
-                        <p>{boardGame.category}</p>
-                        <p>{boardGame.complexity}</p>
-                    </div>)
+                    this.state.data.map(boardGame => (
+                        <div key={boardGame.id}>
+                            <p>{boardGame.name}</p>
+                            <p>{boardGame.category}</p>
+                            <p>{boardGame.complexity}</p>
+                        </div>
+                    ))
                 }
             </main>
         )
