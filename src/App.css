@@ -90,3 +90,16 @@ p {
   }
 
 }
+
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.game {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+  border: solid 1px black;
+}

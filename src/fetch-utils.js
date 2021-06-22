@@ -9,35 +9,35 @@ export async function getAllGames() {
 }
 
 export async function getOneGame(id) {
-    const data = await request.get(`${URL}/board-games/${id}`);
+    const { body } = await request.get(`${URL}/board-games/${id}`);
 
-    return data.body;
+    return body;
 }
 
 export async function updateGame(id, gameData) {
-    const data = await request
+    const { body } = await request
         .put(`${URL}/board-games/${id}`)
         .send(gameData);
 
-    return data.body;
+    return body;
 }
 
 export async function createGame(gameData /* whatever the user put in the form */) {
-    const data = await request
+    const { body } = await request
         .post(`${URL}/board-games/`)
         .send(gameData);
 
-    return data.body;
+    return body;
 }
 
 export async function getAllCategories() {
-    const data = await request.get(`${URL}/categories`);
+    const { body } = await request.get(`${URL}/categories`);
 
-    return data.body;
+    return body;
 }
 
 export async function deleteGame(id) {
-    const data = await request.delete(`${URL}/board-games/${id}`);
+    const { body } = await request.delete(`${URL}/board-games/${id}`);
 
-    return data.body;
+    return body;
 }
