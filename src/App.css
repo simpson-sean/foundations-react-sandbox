@@ -98,8 +98,15 @@ p {
 }
 
 .game {
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
   width: 200px;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 20px;
   border: solid 1px black;
+}
+
+label {
+  display: block;
 }
