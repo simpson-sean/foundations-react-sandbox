@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import ListPage from "./ListPage";
+import CreatePage from "./CreatePage";
 
 // Params are placeholders in the URL that begin
 // with a colon, like the `:id` param defined in
@@ -20,13 +21,22 @@ export default class App extends Component {
     return (
       <Router>
         <div>
-          <h2>My cool board games App</h2>
+          <h2>My cool board games</h2>
+          <p><Link to="/">Home</Link></p>
+          <p><Link to="/create">Add game</Link>
+          </p>
           <Switch>
             <Route 
               path="/" 
               exact
               render={(routerProps) => <ListPage {...routerProps} />} 
+            /> 
+            <Route 
+              path="/create" 
+              exact
+              render={(routerProps) => <CreatePage {...routerProps} />} 
             />          
+         
           </Switch>
         </div>
       </Router>
