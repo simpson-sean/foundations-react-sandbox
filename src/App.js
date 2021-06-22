@@ -9,6 +9,7 @@ import {
 import './App.css';
 import ListPage from "./ListPage";
 import CreatePage from "./CreatePage";
+import DetailPage from "./DetailPage";
 
 // Params are placeholders in the URL that begin
 // with a colon, like the `:id` param defined in
@@ -31,12 +32,16 @@ export default class App extends Component {
               exact
               render={(routerProps) => <ListPage {...routerProps} />} 
             /> 
+              <Route 
+              path="/games/:id" 
+              exact
+              render={(routerProps) => <DetailPage {...routerProps} />} 
+            />
             <Route 
               path="/create" 
               exact
               render={(routerProps) => <CreatePage {...routerProps} />} 
             />          
-         
           </Switch>
         </div>
       </Router>

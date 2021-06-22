@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { getAllGames } from './fetch-utils'
-
+import { Link } from 'react-router-dom';
 export default class ListPage extends Component {
     state = {
         boardGames: []
@@ -16,11 +16,13 @@ export default class ListPage extends Component {
         return (
             <div className="games">
                 {
-                    this.state.boardGames.map(game => <div className="game">
+                    this.state.boardGames.map(game => <Link to={`/games/${game.id}`}>
+                    <div className="game">
                         <p>{game.name}</p>
                         <p>{game.complexity}</p>
                         <p>{game.category}</p>
-                    </div>)
+                    </div>
+                    </Link>)
                 }
             </div>
         )

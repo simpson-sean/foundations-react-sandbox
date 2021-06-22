@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
-import { createGame } from './fetch-utils';
+import { createGame, getOneGame } from './fetch-utils';
 
-export default class CreatePage extends Component {
+export default class DetailPage extends Component {
     state = {
         name: '',
         complexity: 0,
         category_id: 1,
+    }
+
+    componentDidMount = async () => {
+        const id = this.props.match.params.id;
+
+        const game = await getOneGame(id);
+
+        this.setState({
+            name: game.name,
+            complexity: game.complexity,
+            category_id: game.category_id
+        })
     }
 
     handleNameChange = e => {
@@ -35,15 +47,16 @@ export default class CreatePage extends Component {
     render() {
         return (
             <div>
-                <h2>Create item</h2>
+                <h2>Update item</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Name
-                        <input onChange={this.handleNameChange} />
+                        <input value={this.state.name} onChange={this.handleNameChange} />
                     </label>
                     <label>
                         Complexity
-                        <input type='number' onChange={this.handleComplexityChange} />
+                        <input
+                        value={this.state.complexity} type='number' onChange={this.handleComplexityChange} />
                     </label>
                     <label>
                         Category
