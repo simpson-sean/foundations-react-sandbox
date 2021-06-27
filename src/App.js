@@ -1,18 +1,34 @@
-import { Component } from 'react';
-import './reset.css';
-import './App.css';
-import Header from './Header.js';
-import Body from './Body.js';
-import Footer from './Footer.js';
+//import baked in functions
+import React, { Component } from "react";
+import request from 'superagent';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from "react-router-dom";
+
+//import APP related functions
+import ListPage from "./ListPage.js";
+import "./App.css";
+
 
 export default class App extends Component {
   render() {
-      return (
-        <div className="App">
-          <Header />
-          <Body />
-          <Footer />
+    return (
+      <Router>
+        <div>
+          <h2>Star Trek Character</h2>
+          <Switch>
+            <Route 
+              path="/" 
+              exact
+              render={(routerProps) => <ListPage {...routerProps} />} 
+            />          
+          </Switch>
         </div>
-      );
-    }
+      </Router>
+    );
+  }
 }

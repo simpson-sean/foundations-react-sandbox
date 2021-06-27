@@ -15,7 +15,7 @@ export async function getOneCharacter(id) {
 export async function updateCharacter(id, characterData) {
     const data = await request
         .put(`${URL}/trek_character/${id}`)
-        .send(chacterData)
+        .send(characterData)
 
     return data.body;
 }
