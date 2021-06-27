@@ -101,4 +101,5 @@ p {
 
 .character {
   border: 1px solid blueviolet;
+  border-radius: 5px;
 }

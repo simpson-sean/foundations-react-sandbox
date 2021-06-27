@@ -11,6 +11,7 @@ import {
 
 //import APP related functions
 import ListPage from "./ListPage.js";
+import CreatePage from "./CreatePage.js";
 import "./App.css";
 
 
@@ -20,12 +21,19 @@ export default class App extends Component {
       <Router>
         <div>
           <h2>Star Trek Character</h2>
+          <p><Link to="/create">Add Character!</Link></p>
+          <p><Link to="/">Home</Link></p>
           <Switch>
             <Route 
               path="/" 
               exact
               render={(routerProps) => <ListPage {...routerProps} />} 
-            />          
+            />
+            <Route 
+              path="/create" 
+              exact
+              render={(routerProps) => <CreatePage {...routerProps} />} 
+            />                    
           </Switch>
         </div>
       </Router>
