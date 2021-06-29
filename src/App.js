@@ -1,12 +1,11 @@
 //import baked in functions
 import React, { Component } from "react";
-import request from 'superagent';
+//import request from 'superagent';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams
 } from "react-router-dom";
 
 //import APP related functions

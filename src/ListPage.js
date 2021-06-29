@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getAllCharacters } from './fetch-utils';
-import request from 'superagent';
+//import request from 'superagent';
 import { Link } from 'react-router-dom';
 
 export default class ListPage extends Component {

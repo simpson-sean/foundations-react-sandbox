@@ -1,4 +1,4 @@
-import request, { get } from 'superagent';
+import request from 'superagent';
 
 const URL = "https://pacific-fortress-08495.herokuapp.com";
 
