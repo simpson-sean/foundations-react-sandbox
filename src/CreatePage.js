@@ -61,6 +61,7 @@ export default class CreatePage extends Component {
         console.log(this.state);
         return (
             <div>
+                <h2>Add a Character</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>Name:<input onChange={this.handleName} /></label>
                     <label>Species:<input onChange={this.handleSpecies}/></label>

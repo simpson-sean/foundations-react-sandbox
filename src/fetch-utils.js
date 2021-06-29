@@ -8,7 +8,7 @@ export async function getAllCharacters() {
 }
 
 export async function getOneCharacter(id) {
-    const data = await request.get(`${URL}/trek_character/:id`);
+    const data = await request.get(`${URL}/trek_character/${id}`);
     return data.body;
 }
 

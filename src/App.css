@@ -100,8 +100,9 @@ p {
 }
 
 .character {
-  border: 1px solid blueviolet;
+  border: 1px solid violet;
   border-radius: 5px;
+  background-color:thistle;
 }
 
 label {
