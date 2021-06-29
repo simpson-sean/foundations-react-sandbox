@@ -90,3 +90,22 @@ p {
   }
 
 }
+
+.characters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+.character {
+  border: 1px solid violet;
+  border-radius: 5px;
+  background-color:thistle;
+}
+
+label {
+  display: block;
+
+}
